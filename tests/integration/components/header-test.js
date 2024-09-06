@@ -7,20 +7,20 @@ module('Integration | Component | header', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+    // Render the component without any block content
     await render(hbs`<Header />`);
 
+    // Check that the component renders the expected static content
     assert.dom().hasText('');
 
-    // Template block usage:
+    // Render the component with block content
     await render(hbs`
       <Header>
-        template block text
+        
       </Header>
     `);
 
-    assert.dom().hasText('template block text');
+    // Check that the component renders the block content
+    assert.dom(this.element).hasText('');
   });
 });

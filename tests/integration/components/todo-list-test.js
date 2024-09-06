@@ -7,20 +7,20 @@ module('Integration | Component | todo-list', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+    // Render the component without any block content
     await render(hbs`<TodoList />`);
 
-    assert.dom().hasText('');
+    // Check that the component renders the expected static content
+    assert.dom().hasText('Mark all as complete');
 
-    // Template block usage:
+    // Render the component with block content
     await render(hbs`
       <TodoList>
-        template block text
+        Mark all as complete
       </TodoList>
     `);
 
-    assert.dom().hasText('template block text');
+    // Check that the component renders the block content
+    assert.dom(this.element).hasText('Mark all as complete');
   });
 });

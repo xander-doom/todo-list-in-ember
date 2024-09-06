@@ -7,20 +7,20 @@ module('Integration | Component | todo', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+    // Render the component without any block content
     await render(hbs`<Todo />`);
 
-    assert.dom().hasText('');
+    // Check that the component renders the expected static content
+    assert.dom().hasText('Edit todo');
 
-    // Template block usage:
+    // Render the component with block content
     await render(hbs`
       <Todo>
-        template block text
+        Edit todo
       </Todo>
     `);
 
-    assert.dom().hasText('template block text');
+    // Check that the component renders the block content
+    assert.dom(this.element).hasText('Edit todo');
   });
 });

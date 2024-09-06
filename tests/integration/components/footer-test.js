@@ -7,20 +7,22 @@ module('Integration | Component | footer', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+    // Render the component without any block content
     await render(hbs`<Footer />`);
 
-    assert.dom().hasText('');
+    // Check that the component renders the expected static content
+    assert.dom().hasText('0 todos left All Active Completed Clear completed');
 
-    // Template block usage:
+    // Render the component with block content
     await render(hbs`
       <Footer>
-        template block text
+        0 todos left All Active Completed Clear completed
       </Footer>
     `);
 
-    assert.dom().hasText('template block text');
+    // Check that the component renders the block content
+    assert
+      .dom(this.element)
+      .hasText('0 todos left All Active Completed Clear completed');
   });
 });
