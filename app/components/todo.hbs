@@ -1,15 +1,16 @@
 <li class={{if @todo.isCompleted "completed"}}>
   <div class="view">
     <input
+      id="toggle-{{@todo.id}}"
       class="toggle"
       type="checkbox"
-      aria-label="Toggle the completion of this todo"
       checked={{@todo.isCompleted}}
       {{on "change" (fn this.todos.toggleCompletion @todo)}}
     />
-    <label>{{@todo.text}}</label>
+    <label for="toggle-{{@todo.id}}">{{@todo.text}}</label>
     <button type="button" class="destroy" title="Remove this todo"></button>
   </div>
 
-  <input autofocus class="edit" value="Todo Text" />
+  <label for="edit-{{@todo.id}}" class="visually-hidden">Edit todo</label>
+  <input id="edit-{{@todo.id}}" class="edit" value="Todo Text" />
 </li>
