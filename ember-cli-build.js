@@ -7,6 +7,9 @@ module.exports = function (defaults) {
     autoImport: {
       forbidEval: true,
     },
+    fingerprint: {
+      prepend: 'https://your-username.github.io/your-repo-name/',
+    },
   });
 
   app.import('node_modules/todomvc-common/base.css');
